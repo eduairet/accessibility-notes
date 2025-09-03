@@ -104,7 +104,7 @@
   ```HTML
   <img src="image.jpg" alt="Zoom view" tabindex="0" style="outline: 2px solid blue;" />
   ```
-- If you need to make an element focusable but hidden you can use the `hidden` attribute in conjunction with `tabindex`:
+- If you need to make an element not focusable even when the `tabindex` is set, you can use the `hidden` attribute to make it not focusable:
   ```HTML
   <div tabindex="0" hidden>This is a hidden but focusable element.</div>
   ```
