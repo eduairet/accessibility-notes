@@ -1,2 +1,6 @@
-# accessibility-notes
-Web Content Accessibility Guidelines (WCAG) and web accessibility notes.
+# Accessibility Notes
+
+Web Content Accessibility Guidelines (WCAG) and web accessibility in general notes.
+
+## Notes
+- [Web Accessibility Overview](./_notes/01-overview.md)
