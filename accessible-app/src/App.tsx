@@ -1,9 +1,15 @@
+import AccessibleNavigation from "@/Components/AccessibleNavigation";
+
 function App() {
   return (
-    <main className="p-4 max-w-[850px] mx-auto">
-      <h1>Accessible App</h1>
-      <h2>Welcome to the Accessible App!</h2>
-      <p>This application is designed with accessibility in mind.</p>
+    <main className="mx-auto max-w-[850px] px-4 py-24">
+      <h1 className="mb-6 text-3xl font-bold">Accessible App Examples</h1>
+      <main>
+        <section id="Navigation" className="mb-12">
+          <h2 className="mb-4 text-2xl font-semibold">Navigation</h2>
+          <AccessibleNavigation />
+        </section>
+      </main>
     </main>
   );
 }
