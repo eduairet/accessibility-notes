@@ -1,10 +1,26 @@
-version: '3.8'
 services:
   accessible-app:
+    container_name: accessible-app
     build: ./accessible-app
     ports:
       - '5173:5173'
     volumes:
-      - ./accessible-app:/app
-      - /app/node_modules
+      - accessible-app-volume:/app
+      - accessible-app-volume-node_modules:/app/node_modules
     command: npm run dev -- --host 0.0.0.0
+    tty: true
+    stdin_open: true
+
+volumes:
+  accessible-app-volume:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./accessible-app
+      o: bind
+  accessible-app-volume-node_modules:
+    driver: local
+    driver_opts:
+      type: none
+      device: ./accessible-app/node_modules
+      o: bind
