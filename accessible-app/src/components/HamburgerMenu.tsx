@@ -1,5 +1,5 @@
 import { useState } from "react";
-import HamburgerIcon from "./icons/HamburgerIcon";
+import HamburgerIcon from "./HamburgerIcon";
 import useLocation from "@/hooks/useLocation";
 
 const navLinks = [
