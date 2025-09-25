@@ -1,4 +1,4 @@
-import AccessibleNavigation from "@/Components/AccessibleNavigation";
+import AccessibleNavigation from "@/components-abc/AccessibleNavigation";
 
 function App() {
   return (
