@@ -37,7 +37,7 @@ const GoogleMapsIframe: FC<IProps> = ({
 
   return (
     <div
-      className={`${positionClass} overflow-hidden rounded`}
+      className={`${positionClass} overflow-hidden rounded bg-gray-800`}
       role="region"
       aria-label={title}
     >
