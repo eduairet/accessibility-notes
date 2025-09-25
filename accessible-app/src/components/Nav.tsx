@@ -1,11 +1,11 @@
-import useLocation from "@/hooks/useLocation";
 import type { FC } from "react";
+import useLocation from "@/hooks/useLocation";
 
 const navLinks = [
-  { href: "/home", label: "Home" },
-  { href: "/about", label: "About" },
-  { href: "/services", label: "Services" },
-  { href: "/contact", label: "Contact" }
+  { id: "nav-home", href: "/", label: "Home" },
+  { id: "nav-about", href: "/about", label: "About" },
+  { id: "nav-services", href: "/services", label: "Services" },
+  { id: "nav-contact", href: "/contact", label: "Contact" },
 ];
 
 const AccessibleNavigation: FC = () => {
@@ -22,13 +22,12 @@ const AccessibleNavigation: FC = () => {
           const isActive = location.pathname === link.href;
 
           return (
-            <li key={link.href}>
+            <li key={link.id}>
               <a
-                className={`block border-y-4 border-transparent p-4 transition-colors hover:bg-gray-200 focus:bg-gray-200 focus:text-blue-600 focus-visible:outline-2 focus-visible:outline-blue-600 ${isActive ? "border-b-orange-600 font-bold text-orange-600" : "font-medium text-blue-600"}`}
+                className={`block border-y-4 border-transparent px-4 py-1 font-medium transition-colors hover:bg-gray-200 focus:bg-gray-200 focus:text-blue-600 focus-visible:outline-2 focus-visible:outline-blue-600 ${isActive ? "border-b-blue-600 bg-gray-200 text-blue-950" : "text-blue-600"}`}
                 href={link.href}
                 title={link.label}
                 aria-current={isActive ? "page" : undefined}
-                tabIndex={0}
               >
                 {link.label}
               </a>

@@ -1,4 +1,5 @@
-import AccessibleNavigation from "@/components/AccessibleNavigation";
+import AccessibleNavigation from "@/components/Nav";
+import HamburgerMenu from "@/components/HamburgerMenu";
 
 function App() {
   return (
@@ -7,7 +8,10 @@ function App() {
       <main>
         <section id="Navigation" className="mb-12">
           <h2 className="mb-4 text-2xl font-semibold">Navigation</h2>
-          <AccessibleNavigation />
+          <div className="flex flex-col gap-4">
+            <AccessibleNavigation />
+            <HamburgerMenu />
+          </div>
         </section>
       </main>
     </main>
