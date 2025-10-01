@@ -5,8 +5,8 @@ import {
   type FC,
   type FormEvent,
 } from "react";
-import Heading from "./Heading";
-import InputControl from "./InputControl";
+import Heading from "@/components/Heading";
+import InputControl from "@/components/InputControl";
 
 interface FormData {
   name: string;

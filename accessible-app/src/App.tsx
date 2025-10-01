@@ -3,7 +3,8 @@ import HamburgerMenu from "@/components/HamburgerMenu";
 import GoogleMapsIframe from "@/components/GoogleMapsIframe";
 import Section from "@/components/Section";
 import Form from "@/components/Form";
-import Heading from "./components/Heading";
+import Heading from "@/components/Heading";
+import Icons from "./components/Icons";
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Section>
         <Section id="form" title="Accessible Form">
           <Form />
+        </Section>
+        <Section id="icons" title="Accessible Icons">
+          <Icons />
         </Section>
       </main>
     </main>
