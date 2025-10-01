@@ -1,4 +1,5 @@
 import React from "react";
+import Heading from "./Heading";
 
 interface SectionProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
@@ -11,8 +12,8 @@ const Section: React.FC<SectionProps> = ({
   className = "",
   ...rest
 }) => (
-  <section className={`mb-12${className ? ` ${className}` : ""}`} {...rest}>
-    <h2 className="mb-6 text-2xl font-semibold">{title}</h2>
+  <section className={`mb-6${className ? ` ${className}` : ""}`} {...rest}>
+    <Heading level={2}>{title}</Heading>
     <div className="flex flex-col gap-4">{children}</div>
   </section>
 );

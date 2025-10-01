@@ -158,6 +158,20 @@
   - It's also important to provide controls for users to play, pause, and adjust the volume of the content.
   - Add a warning for users about any potentially triggering content (e.g., flashing lights, loud sounds) before they engage with the media.
 
+## Forms
+
+- Use `<label>` elements to associate text labels with form controls. This helps screen readers identify the purpose of each form field.
+  - It's common to use the placeholder instead of the label but this is in general a bad practice.
+- Placeholder needs to have a good amount of contrast to be readable, very light text on a white background is not readable.
+- Don't use asterixes (\*) to indicate required fields, instead use the `required` attribute, and if you want to indicate it visually, use text like "(required)", or in the other hand, "(optional)" for optional fields.
+  - If you really want to use an asterisk, use `aria-hidden="true"` to hide it from screen readers and provide a text alternative indicating the field is required., and always write instructions that indicates what's the asterisk means.
+- You can use `aria-required="true"` to indicate that a field is required, but it's better to use the native `required` attribute since it's more widely supported.
+- When using error messages, make sure they are clear and specific, and provide guidance on how to correct the error.
+  - Use `aria-live="assertive"` to announce error messages to screen readers.
+  - Don't use color alone to indicate errors, as this may not be perceivable by all users.
+  - Consider using icons or text labels to indicate errors.
+- Don't use submit buttons with text like "Submit" or "Send", instead use text that indicates the action being performed, like "Send Message", "Subscribe to Newsletter", etc.
+
 ## Resources
 
 ### [Multimedia Accessibility FAQ (W3C video-notes)](https://www.google.com/url?q=https://www.w3.org/2008/06/video-notes&sa=D&ust=1568581545875000)
