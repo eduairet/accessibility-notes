@@ -185,6 +185,14 @@
   - This helps users understand the context of the link and improves accessibility for screen reader users.
 - When using images or icons as links, make sure to provide a descriptive `alt` attribute or use `aria-label` to indicate the purpose of the link instead of the description of the image.
 
+## Auditing
+
+- Use automated tools to identify potential accessibility issues on your website. Some popular tools include:
+  - [WAVE](https://wave.webaim.org/)
+  - [axe](https://www.deque.com/axe/)
+  - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
+  - [NVDA](https://www.nvaccess.org/download/)
+
 ## Resources
 
 ### [Multimedia Accessibility FAQ (W3C video-notes)](https://www.google.com/url?q=https://www.w3.org/2008/06/video-notes&sa=D&ust=1568581545875000)
