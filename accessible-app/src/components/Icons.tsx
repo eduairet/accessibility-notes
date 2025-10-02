@@ -11,7 +11,7 @@ const IconsDemo: FC = () => (
         Here is the Bitcoin icon inside a paragraph:
       </span>
       <span
-        className="inline-block rounded-full border-white bg-white align-middle"
+        className="inline-block rounded-full border-white bg-white align-middle text-[#F7931A]"
         role="img"
         aria-label="Bitcoin logo"
       >
@@ -24,7 +24,7 @@ const IconsDemo: FC = () => (
     >
       <span id="bitcoin-link">Here is the Bitcoin icon inside a link:</span>
       <a
-        className="inline-block rounded-full border-white bg-white align-middle"
+        className="inline-block rounded-full border-white bg-white align-middle text-[#F7931A] transition-colors hover:text-orange-500"
         href="https://bitcoin.org"
         target="_blank"
         rel="noopener noreferrer"

@@ -172,6 +172,19 @@
   - Consider using icons or text labels to indicate errors.
 - Don't use submit buttons with text like "Submit" or "Send", instead use text that indicates the action being performed, like "Send Message", "Subscribe to Newsletter", etc.
 
+## Links
+
+- When using links, it's preferable not to use `target="_blank"` to open links in a new tab or window, as this can be disorienting for users, especially those using screen readers.
+  - If you must use it, make sure to inform users that the link will open in a new tab or window, for example, by adding an icon (preferred) or text like "(opens in a new tab)".
+    - When using an icon, make sure to provide a text alternative using `aria-label` or a visually hidden text bound to the icon anchor using `aria-labelledby`.
+  - Also, consider using `rel="noopener noreferrer"` to improve security and performance when using `target="_blank"`.
+- Even though it might interfere with styling, the underline is a widely recognized visual cue for links, so it's generally a good idea to keep it.
+  - If you decide to remove the underline, make sure to provide another visual cue, such as a different color or font style, to indicate that the text is a link.
+  - If it has a different color, make sure it has enough contrast with the surrounding text.
+- Another bad practice with links is using "click here", "read more", or similar phrases as link text. Instead, use descriptive text that indicates the purpose of the link, such as "Learn more about our services" or "Read our latest blog post".
+  - This helps users understand the context of the link and improves accessibility for screen reader users.
+- When using images or icons as links, make sure to provide a descriptive `alt` attribute or use `aria-label` to indicate the purpose of the link instead of the description of the image.
+
 ## Resources
 
 ### [Multimedia Accessibility FAQ (W3C video-notes)](https://www.google.com/url?q=https://www.w3.org/2008/06/video-notes&sa=D&ust=1568581545875000)

@@ -8,7 +8,7 @@ interface BitcoinIconProps extends SVGProps<SVGSVGElement> {
 
 const BitcoinIcon: FC<BitcoinIconProps> = ({
   size = 32,
-  color = "#F7931A",
+  color = "currentColor",
 }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"

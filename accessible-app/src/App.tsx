@@ -4,7 +4,8 @@ import GoogleMapsIframe from "@/components/GoogleMapsIframe";
 import Section from "@/components/Section";
 import Form from "@/components/Form";
 import Heading from "@/components/Heading";
-import Icons from "./components/Icons";
+import Icons from "@/components/Icons";
+import Links from "@/components/Links";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
         </Section>
         <Section id="icons" title="Accessible Icons">
           <Icons />
+        </Section>
+        <Section id="links" title="Accessible Links">
+          <Links />
         </Section>
       </main>
     </main>
