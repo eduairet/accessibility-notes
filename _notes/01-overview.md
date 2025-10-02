@@ -192,6 +192,9 @@
   - [axe](https://www.deque.com/axe/)
   - [Lighthouse](https://developers.google.com/web/tools/lighthouse)
   - [NVDA](https://www.nvaccess.org/download/)
+    - Free screen reader for Windows
+    - Use Tab to navigate and Enter to activate links and buttons
+    - Use the arrow keys to read content
 
 ## Resources
 
