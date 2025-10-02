@@ -26,7 +26,7 @@ export const Links: FC = () => (
         focusable="false"
       />
       <span id="external-link" className="sr-only">
-        (opens in a new tab)
+        WCAG Quick Reference (opens in a new tab)
       </span>
     </a>
     <a
@@ -80,7 +80,7 @@ export const Links: FC = () => (
       aria-label="WAI Home"
       className="text-4xl underline underline-offset-8 transition-colors hover:no-underline"
     >
-      🏠
+      <span aria-hidden="true">🏠</span>
     </a>
   </div>
 );
