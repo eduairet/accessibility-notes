@@ -16,7 +16,7 @@ const HamburgerMenu = () => {
   return (
     <nav id="hamburger-menu" className="relative" aria-label="Main navigation">
       <button
-        title="Toggle menu"
+        title={open ? "Close menu" : "Open menu"}
         aria-controls="hamburger-menu-list"
         aria-expanded={open}
         aria-label="Menu"
