@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent, type FC } from "react";
+import { useEffect, useState, type ChangeEvent, type FC } from "react";
 
 interface InputControlProps {
   id: string;
@@ -6,11 +6,13 @@ interface InputControlProps {
   label: string;
   type?: "text" | "email" | "password" | "number" | "tel" | "url" | "textarea";
   value: string;
-  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
   required?: boolean;
+  autocomplete?: string;
   disabled?: boolean;
   placeholder?: string;
+  example?: string;
   error?: string;
+  onChange: (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => void;
 }
 
 const InputControl: FC<InputControlProps> = ({
@@ -19,13 +21,18 @@ const InputControl: FC<InputControlProps> = ({
   label,
   type = "text",
   value,
-  onChange,
   required = false,
+  autocomplete,
   disabled = false,
   placeholder,
+  example,
   error,
+  onChange,
 }) => {
   const [touched, setTouched] = useState(false);
+  const [ariaDescribedBy, setAriaDescribedBy] = useState<string | undefined>(
+    undefined,
+  );
 
   const handleBlur = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -35,6 +42,13 @@ const InputControl: FC<InputControlProps> = ({
       setTouched(true);
     }
   };
+
+  useEffect(() => {
+    const ids = [];
+    if (example) ids.push(`${id}-example`);
+    if (error) ids.push(`${id}-error`);
+    setAriaDescribedBy(ids.length > 0 ? ids.join(" ") : undefined);
+  }, [placeholder, example, error, id]);
 
   return (
     <div className="mb-4">
@@ -66,7 +80,7 @@ const InputControl: FC<InputControlProps> = ({
           disabled={disabled}
           placeholder={placeholder}
           aria-invalid={!!error}
-          aria-describedby={error ? `${id}-error` : undefined}
+          aria-describedby={ariaDescribedBy}
           className="block w-full rounded border border-gray-300 bg-blue-100 p-2 font-medium text-blue-950 outline-blue-600"
         />
       ) : (
@@ -78,12 +92,18 @@ const InputControl: FC<InputControlProps> = ({
           onChange={onChange}
           onBlur={handleBlur}
           required={required}
+          autoComplete={autocomplete}
           disabled={disabled}
           placeholder={placeholder}
           aria-invalid={!!error}
-          aria-describedby={error ? `${id}-error` : undefined}
+          aria-describedby={ariaDescribedBy}
           className="block w-full rounded border border-gray-300 bg-blue-100 p-2 font-medium text-blue-950 outline-blue-600"
         />
+      )}
+      {example && (
+        <span id={`${id}-example`} className="sr-only">
+          Example: {example}
+        </span>
       )}
       {error && (
         <span

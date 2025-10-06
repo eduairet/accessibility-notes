@@ -9,7 +9,7 @@ import Heading from "@/components/Heading";
 import InputControl from "@/components/InputControl";
 
 interface FormData {
-  name: string;
+  fullName: string;
   alias?: string;
   email: string;
   message: string;
@@ -21,7 +21,7 @@ interface FormPayload {
 }
 
 const initialData: FormData = {
-  name: "",
+  fullName: "",
   alias: "",
   email: "",
   message: "",
@@ -43,15 +43,15 @@ const formReducer = (
   }
 };
 
-const formValidator = ({ name, alias, email, message }: FormData) => {
+const formValidator = ({ fullName, alias, email, message }: FormData) => {
   const errors: {
-    name?: string;
+    fullName?: string;
     alias?: string;
     email?: string;
     message?: string;
   } = {};
 
-  if (!name.trim()) errors.name = "Name is required.";
+  if (!fullName.trim()) errors.fullName = "Full name is required.";
   if (alias && !/^[a-zA-Z0-9]+$/.test(alias))
     errors.alias = "Alias must be alphanumeric.";
   if (!email.trim()) errors.email = "Email is required.";
@@ -65,7 +65,7 @@ const Form: FC = () => {
   const [formData, dispatch] = useReducer(formReducer, initialData);
   const [submitted, setSubmitted] = useState(false);
   const [errors, setErrors] = useState<{
-    name?: string;
+    fullName?: string;
     alias?: string;
     email?: string;
     message?: string;
@@ -91,9 +91,12 @@ const Form: FC = () => {
     if (Object.keys(validationErrors).length === 0) {
       setSubmitted(true);
       alert(
-        `Form submitted:\nName: ${formData.name}\nEmail: ${formData.email}\nMessage: ${formData.message}`,
+        `Form submitted:\nFull Name: ${formData.fullName}\nAlias: ${formData.alias}\nEmail: ${formData.email}\nMessage: ${formData.message}`,
       );
       dispatch({ type: "RESET" });
+      const firstInput = document.getElementById("full-name");
+      if (firstInput) (firstInput as HTMLElement).focus();
+      setTimeout(() => setSubmitted(false), 5000);
     } else {
       setSubmitted(false);
     }
@@ -105,23 +108,27 @@ const Form: FC = () => {
       <p className="mb-4">
         All fields marked with an asterisk (*) are required.
       </p>
-      <form onSubmit={handleSubmit} aria-label="Contact form" noValidate>
+      <form id="contact-form" onSubmit={handleSubmit} aria-label="Contact form">
         <InputControl
-          id="name"
-          name="name"
-          label="Name"
-          value={formData.name}
-          onChange={handleChange}
-          error={errors.name}
+          id="full-name"
+          name="fullName"
+          label="Full Name"
+          value={formData.fullName}
+          example="John Doe"
+          error={errors.fullName}
           required
+          autocomplete="given-name"
+          onChange={handleChange}
         />
         <InputControl
           id="alias"
           name="alias"
           label="Alias"
           value={formData.alias || ""}
-          onChange={handleChange}
+          example="john123"
           error={errors.alias}
+          autocomplete="username"
+          onChange={handleChange}
         />
         <InputControl
           id="email"
@@ -129,9 +136,11 @@ const Form: FC = () => {
           label="Email"
           type="email"
           value={formData.email}
-          onChange={handleChange}
+          example="john@example.com"
           error={errors.email}
           required
+          autocomplete="email"
+          onChange={handleChange}
         />
         <InputControl
           id="message"
@@ -139,24 +148,24 @@ const Form: FC = () => {
           label="Message"
           type="textarea"
           value={formData.message}
-          onChange={handleChange}
           error={errors.message}
           required
+          onChange={handleChange}
         />
         <button
           disabled={
-            !!errors.name ||
+            !!errors.fullName ||
             !!errors.email ||
             !!errors.message ||
-            !formData.name ||
+            !formData.fullName ||
             !formData.email ||
             !formData.message
           }
           aria-disabled={
-            !!errors.name ||
+            !!errors.fullName ||
             !!errors.email ||
             !!errors.message ||
-            !formData.name ||
+            !formData.fullName ||
             !formData.email ||
             !formData.message
           }
@@ -166,7 +175,7 @@ const Form: FC = () => {
           Send Message
         </button>
         <div aria-live="assertive" role="alert" className="sr-only">
-          {errors.name || errors.email || errors.message}
+          {errors.fullName || errors.email || errors.message}
         </div>
         {submitted && (
           <div role="status" aria-live="polite" className="mt-4 text-green-300">
