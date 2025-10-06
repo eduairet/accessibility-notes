@@ -196,6 +196,23 @@
     - Use Tab to navigate and Enter to activate links and buttons
     - Use the arrow keys to read content
 
+## Testing
+
+- A good first step to test the accessibility of your website is by using Lighthouse, which is built into Chrome DevTools.
+  - Open Chrome DevTools (F12 or right-click and select "Inspect")
+  - Go to the "Lighthouse" tab
+  - Select the "Accessibility" category
+  - Click "Generate report"
+- Then doing a manual test using only the keyboard to navigate through your website.
+  - Ensure that all interactive elements are accessible and that focus styles are visible.
+  - Check that the tab order is logical and intuitive.
+- Another important step is checking that your website works well whe the user zooms in up to 400% without losing content or functionality.
+  - Prevent horizontal scrolling and ensure that text remains readable.
+- For color test you can see how your website looks in grayscale and with high contrast mode enabled.
+  - On Windows, you can enable high contrast mode in the Ease of Access settings.
+  - On macOS, you can enable grayscale and increase contrast in the Accessibility settings.
+- Finally, test your website with a screen reader to ensure that all content is accessible and that the reading order is logical.
+
 ## Resources
 
 ### [Multimedia Accessibility FAQ (W3C video-notes)](https://www.google.com/url?q=https://www.w3.org/2008/06/video-notes&sa=D&ust=1568581545875000)
